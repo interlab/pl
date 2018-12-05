@@ -1,6 +1,6 @@
 
 
-### Цикл for.
+### Цикл for
 
 #### Ссылки по теме:
 - [Цикл for в Perl 6](https://perl6.ru/2018/01/07/%d1%80%d0%b0%d0%b7%d0%bd%d1%8b%d0%b5-%d0%b2%d0%b8%d0%b4%d1%8b-for-%d0%b2-perl-6/)
@@ -93,8 +93,17 @@ for 1..5 -> Int $i {
 #### С "распаковкой аргумента"
 ```perl6
 my @itemlist = (
-  { book => {author => 'Пушкин А. С.', title => 'Сказка о попе и ...'}, count => 1, tags => <Поп Балда попадья черти> },
-  { book => {author => 'Гоголь Н. В.', title => 'Ночь перед ...'}, count => 1, tags => <Вакула Солоха Дьяк Чёрт> },
+    { book =>
+        { author => 'Пушкин А. С.', title => 'Сказка о попе и ...' },
+        count => 1,
+        tags => <Поп Балда попадья черти>
+    },
+    {
+        book =>
+        { author => 'Гоголь Н. В.', title => 'Ночь перед ...' },
+        count => 1,
+        tags => <Вакула Солоха Дьяк Чёрт>
+    },
 );
 
 for @itemlist -> % (:%book (Str:D :$title, Str:D :$author), Int :$count,
@@ -113,7 +122,7 @@ see: [Loop Phasers](https://docs.perl6.org/language/phasers#Loop_Phasers)
 my @a2 = 1..Inf;
 my $s = '-' x 10;
 for @a2[^5] -> Int $i {
-  FIRST { say "Поехали!\\n{$s}"; }
+  FIRST { say "Поехали!\n{$s}"; }
   say $i;
   NEXT { say $s; }
   LAST { say 'Полёт завершён!'; }
