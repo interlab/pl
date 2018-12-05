@@ -32,7 +32,7 @@ for @a -> $x {
 Вывод сразу двух элементов на ряд:
 ```perl6
 for @a -> $x, $y {
-  say &quot;$x $y&quot;;
+  say "$x $y";
 }
 ```
 
@@ -47,25 +47,25 @@ my @b = (for 1, 2, 3 { $_ * 2 });
 
 #### Объединение двух массивов:
 ```perl6
-for @array1 Z @array2 -> $one, $two { say $one, ' ', $two; }
+for @array1 Z @array2 -> $it { say $it[0], ' ', $it[1]; }
 ```
 
 Массивов может быть много:
 ```perl6
-for @one Z @two Z @three Z @four -> $one, $two, $three, $four {
-  say $one, ' ', $two, ' ', $three, ' ', $four;
+for @one Z @two Z @three Z @four -> $it {
+  say $it.join(' - ');
 }
 ```
 
 #### Обход с индексом шага.
 Вам нужна функция [enumerate](https://docs.python.org/3/library/functions.html#enumerate) из Python 3? Делайте так:
 ```perl6
-for ^Inf Z @array -> $index, $item { say $index, ' ', $item; }
+for (^Inf Z @array).flat -> $index, $item { say $index, ' ', $item; }
 ```
 
 Или добавляйте индекс вот так:
 ```perl6
-for ^@array.elems Z @array -> $index, $item { say $index, ' ', $item; }
+for (^@array.elems Z @array).flat -> $index, $item { say $index, ' ', $item; }
 ```
 
 То же самое (элегантное решение): 
@@ -79,7 +79,7 @@ my %h = alpha => 'a', beta => 'b',
     gamma => 'c', delta => 'd';
 
 for %h.kv -> $greek, $latin {
-  say &quot;$greek=$latin&quot;;
+  say "$greek = $latin";
 }
 ```
 
@@ -100,7 +100,7 @@ my @itemlist = (
 for @itemlist -> % (:%book (Str:D :$title, Str:D :$author), Int :$count,
           :@tags ($first-tag, *@other-tags))
 {
-  say &quot;$title, $author, $count, $first-tag, @other-tags&#91;]&quot;;
+  say "$title, $author, $count, $first-tag, @other-tags[]";
 }
 ```
 
@@ -113,7 +113,7 @@ see: [Loop Phasers](https://docs.perl6.org/language/phasers#Loop_Phasers)
 my @a2 = 1..Inf;
 my $s = '-' x 10;
 for @a2[^5] -> Int $i {
-  FIRST { say &quot;Поехали!\\n{$s}&quot;; }
+  FIRST { say "Поехали!\\n{$s}"; }
   say $i;
   NEXT { say $s; }
   LAST { say 'Полёт завершён!'; }
@@ -142,7 +142,7 @@ say @foo; # [2, 3, 4]
 ```perl6
 my @list = 1, 2, 3, 4;
 for @list -> $a, $b = 'N/A', $c = 'N/A' {
-  say &quot;$a $b $c&quot;
+  say "$a $b $c";
 }
 # 1 2 3
 # 4 N/A N/A
