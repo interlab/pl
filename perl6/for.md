@@ -3,7 +3,7 @@
 ### Цикл for.
 
 #### Ссылки по теме:
-- [https://perl6.ru/2018/01/07/%d1%80%d0%b0%d0%b7%d0%bd%d1%8b%d0%b5-%d0%b2%d0%b8%d0%b4%d1%8b-for-%d0%b2-perl-6/](Цикл for в Perl 6)
+- [Цикл for в Perl 6](https://perl6.ru/2018/01/07/%d1%80%d0%b0%d0%b7%d0%bd%d1%8b%d0%b5-%d0%b2%d0%b8%d0%b4%d1%8b-for-%d0%b2-perl-6/)
 - https://docs.perl6.org/language/control#for
 - https://perl6advent.wordpress.com/2009/12/07/day-7-looping-for-fun-and-profit/
 
@@ -58,7 +58,7 @@ for @one Z @two Z @three Z @four -> $one, $two, $three, $four {
 ```
 
 #### Обход с индексом шага.
-Вам нужна функция [https://docs.python.org/3/library/functions.html#enumerate](enumerate) из Python 3? Делайте так:
+Вам нужна функция [enumerate](https://docs.python.org/3/library/functions.html#enumerate) из Python 3? Делайте так:
 ```perl6
 for ^Inf Z @array -> $index, $item { say $index, ' ', $item; }
 ```
@@ -106,7 +106,7 @@ for @itemlist -> % (:%book (Str:D :$title, Str:D :$author), Int :$count,
 
 #### Loop Phasers
 
-see: https://docs.perl6.org/language/phasers#Loop_Phasers
+see: [Loop Phasers](https://docs.perl6.org/language/phasers#Loop_Phasers)
 
 Если у вас будет элемент с типом, отличимым от Int, то будет ошибка. FIRST сработает в начале, NEXT при каждом шаге цикла, LAST в конце.
 ```perl6
