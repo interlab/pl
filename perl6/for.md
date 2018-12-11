@@ -60,12 +60,18 @@ for @one Z @two Z @three Z @four -> $it {
 #### Обход с индексом шага.
 Вам нужна функция [enumerate](https://docs.python.org/3/library/functions.html#enumerate) из Python 3? Делайте так:
 ```perl6
+my @array = <a b c d e f g h>;
 for (^Inf Z @array).flat -> $index, $item { say $index, ' ', $item; }
+```
+
+То же самое, но компактней
+```perl6
+for ^Inf Z @array -> ($index, $item) { say $index, ' ', $item; }
 ```
 
 Или добавляйте индекс вот так:
 ```perl6
-for (^@array.elems Z @array).flat -> $index, $item { say $index, ' ', $item; }
+for ^@array.elems Z @array -> ($index, $item) { say $index, ' ', $item; }
 ```
 
 То же самое (элегантное решение): 
