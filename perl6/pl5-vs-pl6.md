@@ -7,24 +7,172 @@
  - https://tpm-regex.perl6.party/
  - https://perldoc.pl/perlretut
 
-| Perl 5 | Perl 6
-| ------ | ------ |
-| `next if $line  =~ /static/  ;`    | `next if $line ~~ /static/  ;`  |
-| `next if $line !~ /dynamic/ ;`     | `next if $line !~~ /dynamic/ ;` |
-| | |
-| `$line =~ s/abc/123/;` | `$line ~~ s/abc/123/;` |
-| `/(.+)/ and print $1;` | `/(.+)/ and print $0;` |
-| `next if $line =~ /static/i;` | `next if $line ~~ m:i/static/;` |
-| `next if $line =~ m/` | `next if $line ~~ m/` |
-| `next if $line =~ m/[^abc]/;` | `next if $line ~~ m/<-[abc]>/;` |
-| `next if $line =~ m/[a-zA-Z]/;` | `next if $line ~~ m/<[a..zA..Z]>/;` |
-| `say $1 if 'abc' =~ /(?:a|b)(c)/; # OUTPUT: c` | `say ~$0 if 'abc' ~~ / [a||b] (c) /; # OUTPUT: c` |
-| `say 'abcdefg' =~ /\w{2,5}/;` | `say 'abcdefg' ~~ /\w ** 2..5/;` |
-|||
-| `say 1 if 'foobar' =~ /(?<=foo)bar/;` | `say 1 if 'foobar' ~~ / <after foo> bar /;` |
-| `say 0 unless 'foobar' =~ /(?<!foo)bar/;` | `say 0 unless 'foobar' ~~ / <!after foo> bar /;` |
-| `say 1 if 'barbaz' =~ /bar(?=baz)/;` | `say 1 if 'barbaz' ~~ / bar <before baz> /;` |
-| `say 0 unless 'barbaz' =~ /bar(?!baz)/;` | `say 0 unless 'barbaz' ~~ / bar <!before baz> /;` |
+
+Perl 5
+```perl5
+next if $line  =~ /static/  ;
+```
+
+Perl 6
+```perl6
+next if $line ~~ /static/  ;
+```
+
+---
+
+Perl 5
+```perl5
+next if $line !~ /dynamic/ ;
+```
+
+Perl 6
+```perl6
+next if $line !~~ /dynamic/ ;
+```
+
+---
+
+Perl 5
+```perl5
+$line =~ s/abc/123/;
+```
+
+Perl 6
+```perl6
+$line ~~ s/abc/123/;
+```
+
+---
+
+Perl 5
+```perl5
+/(.+)/ and print $1;
+```
+
+Perl 6
+```perl6
+/(.+)/ and print $0;
+```
+
+---
+
+Perl 5
+```perl5
+next if $line =~ /static/i;
+```
+
+Perl6
+```perl6
+next if $line ~~ m:i/static/;
+```
+
+---
+
+Perl 5
+```perl5
+next if $line =~ m/
+```
+
+Perl 6
+```perl6
+next if $line ~~ m/
+```
+
+---
+
+Perl 5
+```perl5
+next if $line =~ m/[^abc]/;
+```
+
+Perl 6
+```perl6
+next if $line ~~ m/<-[abc]>/;
+```
+
+---
+
+Perl 5
+```perl5
+next if $line =~ m/[a-zA-Z]/;
+```
+
+Perl 6
+```perl6
+next if $line ~~ m/<[a..zA..Z]>/;
+```
+
+---
+
+Perl 5
+```perl5
+say $1 if 'abc' =~ /(?:a|b)(c)/; # OUTPUT: c
+```
+
+Perl 6
+```perl6
+say ~$0 if 'abc' ~~ / [a||b] (c) /; # OUTPUT: c
+```
+
+---
+
+Perl 5
+```perl5
+say 'abcdefg' =~ /\w{2,5}/;
+```
+
+Perl 6
+```perl6
+say 'abcdefg' ~~ /\w ** 2..5/;
+```
+
+---
+
+Perl 5
+```perl5
+say 1 if 'foobar' =~ /(?<=foo)bar/;
+```
+
+Perl 6
+```perl6
+say 1 if 'foobar' ~~ / <after foo> bar /;
+```
+
+---
+
+Perl 5
+```perl5
+say 0 unless 'foobar' =~ /(?<!foo)bar/;
+```
+
+Perl 6
+```perl6
+say 0 unless 'foobar' ~~ / <!after foo> bar /;
+```
+
+---
+
+Perl 5
+```perl5
+say 1 if 'barbaz' =~ /bar(?=baz)/;
+```
+
+Perl 6
+```perl6
+say 1 if 'barbaz' ~~ / bar <before baz> /;
+```
+
+---
+
+Perl 5
+```perl5
+say 0 unless 'barbaz' =~ /bar(?!baz)/;
+```
+
+Perl 6
+```perl6
+say 0 unless 'barbaz' ~~ / bar <!before baz> /;
+```
 
 
 #### Perl 6
