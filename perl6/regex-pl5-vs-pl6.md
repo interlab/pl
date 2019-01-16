@@ -10,24 +10,14 @@
 
 Perl 5
 ```perl5
-next if $line  =~ /static/  ;
+next if $line =~ /static/;
+next if $line !~ /dynamic/;
 ```
 
 Perl 6
 ```perl6
-next if $line ~~ /static/  ;
-```
-
----
-
-Perl 5
-```perl5
-next if $line !~ /dynamic/ ;
-```
-
-Perl 6
-```perl6
-next if $line !~~ /dynamic/ ;
+next if $line ~~ /static/;
+next if $line !~~ /dynamic/;
 ```
 
 ---
@@ -48,6 +38,8 @@ Perl 5
 ```perl5
 /(.+)/ and print $1;
 ```
+
+---
 
 Perl 6
 ```perl6
@@ -70,23 +62,15 @@ next if $line ~~ m:i/static/;
 
 Perl 5
 ```perl5
-next if $line =~ m/
-```
-
-Perl 6
-```perl6
-next if $line ~~ m/
+next if $line =~ m/[aeiou]/;
+next if $line =~ m/[^abc]/;
 ```
 
 ---
 
-Perl 5
-```perl5
-next if $line =~ m/[^abc]/;
-```
-
 Perl 6
 ```perl6
+next if $line ~~ m/<[aeiou]>/;
 next if $line ~~ m/<-[abc]>/;
 ```
 
