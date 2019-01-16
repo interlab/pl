@@ -39,8 +39,6 @@ Perl 5
 /(.+)/ and print $1;
 ```
 
----
-
 Perl 6
 ```perl6
 /(.+)/ and print $0;
@@ -65,8 +63,6 @@ Perl 5
 next if $line =~ m/[aeiou]/;
 next if $line =~ m/[^abc]/;
 ```
-
----
 
 Perl 6
 ```perl6
