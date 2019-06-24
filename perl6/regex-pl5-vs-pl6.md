@@ -7,6 +7,7 @@
  - https://tpm-regex.perl6.party/
  - https://perldoc.pl/perlretut
 
+---
 
 Perl 5
 ```perl5
@@ -154,6 +155,7 @@ Perl 6
 say 0 unless 'barbaz' ~~ / bar <!before baz> /;
 ```
 
+---
 
 #### Perl 6
 #### Жадное совпадение: .*
